@@ -6,7 +6,7 @@
         <title>My Photos</title>
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-        <link href="css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
     </head>
     <body>
@@ -15,11 +15,49 @@
         </header>
         <div class="container">
             <div id="img_unit">
-                <div class="photo">
-                    <img src="img/img01.jpg">
-                    <div class="inner"><p>こっちは貫禄ありすぎ<span>sansaisan</span></p></div>
-                </div>
+              <!-- JavaScriptで記述 -->  
             </div>
         </div><!-- container -->
+        <script>
+            var images = [
+                {
+                    "path" : "img/img01.jpg",
+                    "name" : "sansaisan",
+                    "caption" : "こっちは貫禄ありすぎ"
+                }
+                ,
+                {
+                    "path" : "img/img02.jpg",
+                    "name" : "yukky_13dream",
+                    "caption" : "年明け富士山"
+                }
+                ,
+                {
+                    "path" : "img/img03.jpg",
+                    "name" : "maako",
+                    "caption" : "空と大地の境界線って、どのあたり？"
+                }
+            ];
+
+            var img;
+            var caption;
+            var photo;
+
+            img = document.createElement('img');
+            img.setAttribute('src', images[0].path);
+            
+            caption = document.createElement('div');
+            caption.className = 'inner';
+            caption.innerHTML = 
+                '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
+            
+            photo = document.createElement('div');
+            photo.className = 'photo';
+            photo.appendChild(img);
+            photo.appendChild(caption);
+
+            document.getElementById('img_unit').appendChild(photo);
+
+        </script>
     </body>
 </html>
